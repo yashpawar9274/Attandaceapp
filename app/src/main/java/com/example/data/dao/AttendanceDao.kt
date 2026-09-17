@@ -43,4 +43,7 @@ interface AttendanceDao {
 
     @Query("SELECT COUNT(*) FROM attendance_records")
     suspend fun getCount(): Int
+
+    @Query("DELETE FROM attendance_records")
+    suspend fun deleteAllAttendance()
 }

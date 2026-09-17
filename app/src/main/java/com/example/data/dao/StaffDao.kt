@@ -34,4 +34,7 @@ interface StaffDao {
 
     @Query("SELECT COUNT(*) FROM staff_members")
     suspend fun getStaffCount(): Int
+
+    @Query("DELETE FROM staff_members")
+    suspend fun deleteAllStaff()
 }

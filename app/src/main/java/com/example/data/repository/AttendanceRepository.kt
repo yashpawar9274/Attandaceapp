@@ -130,12 +130,21 @@ class AttendanceRepository(
 
     suspend fun deleteLeaveRequest(request: LeaveRequest) = leaveDao.delete(request)
 
+    // Clear all data
+    suspend fun clearAllData() {
+        attendanceDao.deleteAllAttendance()
+        leaveDao.deleteAllLeaves()
+        staffDao.deleteAllStaff()
+    }
+
     // Seed data initializer
     suspend fun initializeSeedDataIfNeeded() {
-        if (staffDao.getStaffCount() == 0) {
-            staffDao.insertAllStaff(SeedData.sampleStaff)
-            attendanceDao.insertAll(SeedData.generateSampleAttendance())
-            leaveDao.insertAll(SeedData.sampleLeaveRequests)
-        }
+        // Only seed on initial run if not explicitly checked or if requested
+    }
+
+    suspend fun loadDemoSampleData() {
+        staffDao.insertAllStaff(SeedData.sampleStaff)
+        attendanceDao.insertAll(SeedData.generateSampleAttendance())
+        leaveDao.insertAll(SeedData.sampleLeaveRequests)
     }
 }

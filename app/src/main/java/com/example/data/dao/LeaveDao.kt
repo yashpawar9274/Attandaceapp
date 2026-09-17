@@ -44,4 +44,7 @@ interface LeaveDao {
 
     @Query("SELECT COUNT(*) FROM leave_requests")
     suspend fun getCount(): Int
+
+    @Query("DELETE FROM leave_requests")
+    suspend fun deleteAllLeaves()
 }

@@ -225,6 +225,18 @@ class AttendanceViewModel(
         }
     }
 
+    fun clearAllMockData() {
+        viewModelScope.launch {
+            repository.clearAllData()
+        }
+    }
+
+    fun loadDemoData() {
+        viewModelScope.launch {
+            repository.loadDemoSampleData()
+        }
+    }
+
     fun dismissPdfExportDialog() {
         _pdfExportStatus.value = PdfExportStatus.Idle
     }
