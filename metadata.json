@@ -1,0 +1,6 @@
+{
+  "name": "OM Value Homes",
+  "description": "Staff attendance tracking, hourly rate earnings calculation, overtime tracker, manager leave approval dashboard, and PDF payroll reports for OM Value Homes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
